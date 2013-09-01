@@ -1,0 +1,14 @@
+/* vim: set filetype=javascript : */
+module.exports = {
+    // Creates a local project command called ghdeploy
+    ghdeploy: require('volo-ghdeploy')('www-built', 'www-ghdeploy'),
+
+    // This could be more fancy later. All it does now is copy
+    // things into place.
+    build: {
+        run: ['rm -fr www-built',
+              'cp -R www www-built',
+              // Prevent copied submodules from confusing volo-ghdeploy.
+              'find www-built -name .git* -exec rm -fr {} \;']
+    },
+}

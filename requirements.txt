@@ -1,0 +1,2 @@
+requests
+-e git://github.com/harperreed/bigpy.git@b6eeedb3e9663932fcbd0c0a7ef0828e7736b381#egg=bigpy

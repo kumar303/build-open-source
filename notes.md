@@ -1,0 +1,67 @@
+- Open source modules are important for the community
+  - In closed source you are limited by the resources of your company
+  - In open source you get access to all the resources in the world :)
+  - Django is very extensible and every project will need custom modules one day
+- Pillars of a successful Python module
+  - Purpose
+  - Documentation
+  - Stability
+  - Community
+- Purpose:
+  - extract modules from working code
+  - # TODO: liberate
+  - scratch an itch
+  - make a better solution to an already solved problem
+- Documentation:
+  - What makes a good README, what makes a great README
+    - User documentation
+    - Developer documentation!
+    - important
+        - how to install
+        - how to ship changes
+        - roadmap?
+        - changelog
+        - glossary
+        - where to get help
+  - Host documentation on [readthedocs.org](https://readthedocs.org/)
+  - Keep a changelog
+  - Document backwards incompatible changes
+  - Generate API documentation with [Sphinx](http://sphinx-doc.org/)
+  - Code: always show full import paths
+- Stability:
+  - Your module lives in controlled chaos
+    - Your dependencies change
+    - Python changes
+    - Django changes
+  - Your contributors need an easy way to add features
+  - You need a way to quickly add features
+  - You need automated tests
+  - Test with all versions of Python and all versions of Django using [tox](http://tox.readthedocs.org/)
+  - Use [TravisCI](https://travis-ci.org/) to run your tests continuously
+  - Learn about Django's well documented [testing features](https://docs.djangoproject.com/en/dev/topics/testing/)
+  - 100% test coverage is dangerous
+- Community:
+  - Publish to [PyPI](https://pypi.python.org/pypi)
+    - Specify Python 3 compatibility
+  - You will receive lots of patches
+    - Come up with patch requirements: tests, docs
+    - Review code introduced by patches
+    - Reject invalid solutions
+    - Use something like GitHub for pull request, review, and merge functionality
+  - Promote frequent patchers to admins
+  - Create a mailing list so that all members can answer questions
+  - Contributors will come and go
+  - Document all project maintenance procedures
+  - How to transfer maintainer duties to someone else
+  - It's ok to abandon projects as long as you empower the community
+    - let experts emerge (good to have multiple)
+    - rotate "chores"
+  - bike-shedding
+    - "come with code" solves many problems
+  - use a bug tracker, triage bugs
+- Closing notes
+  - Summary of crucial topics that were covered
+  - Make great modules
+  - Help develop and maintain modules you care about
+  - Try patching packages before creating new ones
+
