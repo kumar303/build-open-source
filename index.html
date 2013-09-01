@@ -1,1 +1,379 @@
-Setting up pages...
+<!DOCTYPE html><html><head><title>How To Create Amazing Open Source Modules</title><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" /><style type='text/css'>body {
+  font-family: 'Helvetica';
+  letter-spacing:-5px;
+  background:#000;
+  background-size:100%;
+  color:#fff;
+  margin:0;
+  padding:0;
+  font-weight:bold;
+}
+
+h1, h2, h3, p {
+  margin:0;
+}
+
+em, a {
+  font-style:normal;
+  color:#8dbd0c;
+}
+
+a {
+  background: #34d0e7;
+  color:#000;
+  text-decoration:none;
+}
+
+img {
+  width:100%;
+}
+
+div {
+  cursor:pointer;
+  cursor:hand;
+  position:absolute;
+  top:0px;
+  left:0px;
+  padding:75px;
+  line-height:97%;
+}
+
+div.center {
+  text-align:center;
+}
+
+div.imageText {
+  text-shadow:0px 0px 5px rgba(0,0,0,0.2);
+}
+
+img.centered {
+    display: block;
+    position: absolute;
+    font-size: 10px;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    line-height: 0;
+}
+</style><script type='text/javascript'>window.onload = function() {
+    var s = document.getElementsByTagName('div'), cur = 0, ti, topOffset;
+    if (!s) return;
+    function go(n) {
+        cur = n;
+        var i = 1e3, e = s[n], t;
+        for (var k = 0; k < s.length; k++) s[k].style.display = 'none';
+        e.style.display = 'block';
+        e.style.fontSize = i + 'px';
+        if (e.firstChild.nodeName === 'IMG') {
+            if ('contains' in e.firstChild.classList && e.firstChild.classList.contains('centered')) {
+                /*
+                topOffset = (window.innerHeight / 2) - (e.firstChild.height / 2);
+                if (topOffset < 5) {
+                  topOffset = 5;
+                }
+                */
+                // I have no idea why this works.
+                topOffset = -150;
+                e.firstChild.style.left = ((window.innerWidth / 2) - (e.firstChild.width / 2)) + 'px';
+                e.firstChild.style.top = topOffset + 'px';
+            } else {
+                document.body.style.backgroundImage = 'url(' + e.firstChild.src + ')';
+                e.firstChild.style.display = 'none';
+                if ('classList' in e) e.classList.add('imageText');
+            }
+        } else {
+            document.body.style.backgroundImage = '';
+            document.body.style.backgroundColor = e.style.backgroundColor;
+        }
+        if (ti !== undefined) window.clearInterval(ti);
+        t = parseInt(e.getAttribute('time-to-next') || 0, 10);
+        if (t > 0) ti = window.setTimeout(fwd, (t * 1000));
+        while (
+            e.offsetWidth > window.innerWidth ||
+            e.offsetHeight > window.innerHeight) {
+            e.style.fontSize = (i -= i * 0.05) + 'px';
+            if (i < 0) break;
+        }
+        e.style.marginTop = ((window.innerHeight - e.offsetHeight) / 2) + 'px';
+        if (window.location.hash !== n) window.location.hash = n;
+        document.title = e.textContent || e.innerText;
+    }
+    document.onclick = function() { go(++cur % (s.length)); };
+    function fwd() { go(Math.min(s.length - 1, ++cur)); }
+    function rev() { go(Math.max(0, --cur)); }
+    document.onkeydown = function(e) {
+        if (e.which === 39) fwd();
+        if (e.which === 37) rev();
+    };
+    document.ontouchstart = function(e) {
+        var x0 = e.changedTouches[0].pageX;
+        document.ontouchend = function(e) {
+            var x1 = e.changedTouches[0].pageX;
+            if (x1 - x0 < 0) fwd();
+            if (x1 - x0 > 0) rev();
+        };
+    };
+    function parse_hash() {
+        return Math.max(Math.min(
+            s.length - 1,
+            parseInt(window.location.hash.substring(1), 10)), 0);
+    }
+    if (window.location.hash) cur = parse_hash() || cur;
+    window.onhashchange = function() {
+        var c = parse_hash();
+        if (c !== cur) go(c);
+    };
+
+    go(cur);
+};
+</script></head><body><div><img src="images/temple.jpg" alt="temple" /> How To Create Amazing Open Source Modules
+<a href="https://github.com/kumar303/build-open-source">github.com/ kumar303/ build-open-source</a>
+</div>
+<div>Newbies or seasoned hackers
+</div>
+<div>Topics:
+
+<ul>
+<li>scaffolding</li>
+<li>docs</li>
+<li>stability</li>
+<li>community</li>
+</ul>
+</div>
+<div><a href="https://github.com/mozilla/">Mozilla</a> &lt;3 open source
+</div>
+<div>Mozilla: 45+ Django modules
+
+<ul>
+<li><a href="https://github.com/andymckay/django-aesfield">django-aesfield</a></li>
+<li><a href="https://github.com/mozilla/django-browserid/">django-browserid</a></li>
+<li><a href="https://github.com/jbalogh/django-cache-machine">django-cache-machine</a></li>
+<li><a href="https://github.com/mozilla/django-memcached-pool">django-memcached-pool</a></li>
+<li><a href="https://github.com/jbalogh/django-nose">django-nose</a></li>
+<li><a href="https://github.com/andymckay/django-paranoia/">django-paranoia</a></li>
+<li><a href="https://github.com/jsocol/django-statsd">django-statsd</a></li>
+<li><a href="https://github.com/jsocol/django-waffle/">django-waffle</a></li>
+</ul>
+</div>
+<div>Useless modules are OK
+</div>
+<div><img src="images/mustache_cropped.jpg" alt="Creepy mustache" /> I want to use your module
+</div>
+<div>When should you create a module?
+</div>
+<div><pre><code>TODO: liberate
+</code></pre>
+</div>
+<div><pre><code>from setuptools import setup
+
+setup(name='yourmodule',
+      version='1.0.0',
+      ...)
+</code></pre>
+</div>
+<div>Publish to <a href="https://pypi.python.org/pypi">PyPI</a>
+
+<pre><code>python setup.py sdist \
+                register \
+                upload
+</code></pre>
+</div>
+<div><pre><code>pip install yourmodule
+</code></pre>
+</div>
+<div><pre><code>yourmodule/__init__.py:
+
+__version__ = '1.0.0'
+</code></pre>
+</div>
+<div><pre><code>import re, sys
+
+version = None
+for line in open("./yourmodule/__init__.py"):
+    m = re.search("__version__\s*=\s*(.*)", line)
+    if m:
+        version = m.group(1).strip()[1:-1]
+</code></pre>
+</div>
+<div>quotes
+            break
+    assert version
+</div>
+<div><pre><code>setup(...,
+      classifiers=[
+        'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 3',
+      ])
+</code></pre>
+</div>
+<div>Support Python 2 and 3 with <a href="https://pypi.python.org/pypi/six/">six</a>
+</div>
+<div><pre><code>setup(...,
+      license='Apache 2')
+</code></pre>
+</div>
+<div><img src="images/good-guy.png" alt="Good Guy" /><a href="http://en.wikipedia.org/wiki/WTFPL">WTFPL</a> - Do What the Fuck You Want to Public License
+</div>
+<div>Write documentation (it's ok to be lazy)
+</div>
+<div>Add a README.rst file (yes, reStructuredText)
+</div>
+<div>Say anything in the README, just say something
+</div>
+<div>Crucial docs:
+
+<ol>
+<li>what your module is for</li>
+<li>how to install it</li>
+<li>how to use it</li>
+<li>how to hack on it</li>
+</ol>
+</div>
+<div>When you are AWESOME:
+
+<ul>
+<li>switch to <a href="http://sphinx-doc.org/">Sphinx</a></li>
+<li>deploy to <a href="https://readthedocs.org/">readthedocs.org</a> from git</li>
+</ul>
+</div>
+<div>Usage docs:
+
+<ul>
+<li>show code, examples</li>
+<li>use <a href="http://docs.python.org/2/library/doctest.html">doctest</a> (but be careful)</li>
+<li>document settings</li>
+</ul>
+</div>
+<div><pre><code>.. doctest::
+    :hide:
+
+    &gt;&gt;&gt; fudge.clear()
+
+.. doctest::
+
+    &gt;&gt;&gt; from fudge import Fake
+    &gt;&gt;&gt; do_login = Fake()
+</code></pre>
+</div>
+<div><pre><code>def login(user, passwd):
+    """
+    Logs in the user
+
+    :param user: string
+    :param passwd: string
+    :rtype: boolean
+    """
+
+.. autofunction:: yourmodule.login
+</code></pre>
+</div>
+<div>Tell a story about your module. Fallback to the API reference.
+</div>
+<div>How to test...
+
+<ul>
+<li>test environment</li>
+<li>running tests</li>
+<li>running partial tests</li>
+</ul>
+</div>
+<div>Nice docs:
+
+<ul>
+<li>where to get help</li>
+<li>changelog
+<ul>
+<li>backwards incompatible</li>
+</ul></li>
+<li>roadmap?</li>
+</ul>
+</div>
+<div>Use <a href="http://tox.readthedocs.org/en/latest/">tox</a> to test your module
+</div>
+<div><pre><code>[testenv]
+commands=
+    python manage.py test
+
+[testenv:py27]
+basepython=python2.7
+
+[testenv:py32]
+basepython=python3.2
+</code></pre>
+</div>
+<div><pre><code>[django14]
+deps=
+    Django &gt;= 1.4, &lt; 1.5
+
+[django15]
+deps=
+    Django &gt;= 1.5, &lt; 1.6
+</code></pre>
+</div>
+<div><pre><code>[base]
+deps=
+    M2Crypto &gt;= 0.21.1
+
+[django14]
+deps=
+    Django &gt;= 1.4, &lt; 1.5
+    {[base]deps}
+</code></pre>
+</div>
+<div>Run tests continuously with <a href="https://travis-ci.org/">TravisCI</a>
+</div>
+<div><pre><code>language: python
+python:
+  - "2.7"
+
+install:
+  - pip install tox
+script: tox
+</code></pre>
+</div>
+<div>Accepting patches
+
+<ul>
+<li>choose your criteria
+<ul>
+<li>require tests</li>
+<li>require docs</li>
+<li>review patches</li>
+</ul></li>
+</ul>
+</div>
+<div>Open source governance
+
+<ul>
+<li>meritocracy</li>
+<li>experts emerge</li>
+<li>contributors come and go</li>
+</ul>
+</div>
+<div>Bikeshedding
+
+<ul>
+<li>don't let it slow you down</li>
+<li>working code trumps all</li>
+</ul>
+</div>
+<div>Maintenance?!
+
+<ul>
+<li>chores, release management</li>
+<li>quit at will</li>
+<li>appreciate and empower others</li>
+<li>maintain modules you care about</li>
+</ul>
+</div>
+<div><img src="images/earth.jpg" alt="earth" /> That's it
+
+<ul>
+<li>make amazing modules
+<ul>
+<li>try to patch other modules first</li>
+</ul></li>
+<li>questions?</li>
+<li><a href="https://twitter.com/kumar303">@kumar303</a></li>
+</ul>
+</div>
