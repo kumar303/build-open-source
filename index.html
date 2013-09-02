@@ -134,7 +134,8 @@ img.centered {
 <div>Topics:
 
 <ul>
-<li>scaffolding</li>
+<li>scaffolding that works today</li>
+<li>essential tools</li>
 <li>docs</li>
 <li>stability</li>
 <li>community</li>
@@ -193,11 +194,9 @@ for line in open("./yourmodule/__init__.py"):
     m = re.search("__version__\s*=\s*(.*)", line)
     if m:
         version = m.group(1).strip()[1:-1]
+        break
+assert version
 </code></pre>
-</div>
-<div>quotes
-            break
-    assert version
 </div>
 <div><pre><code>setup(...,
       classifiers=[
@@ -208,6 +207,10 @@ for line in open("./yourmodule/__init__.py"):
 </div>
 <div>Support Python 2 and 3 with <a href="https://pypi.python.org/pypi/six/">six</a>
 </div>
+<div>Use <a href="https://pypi.python.org/pypi/check-manifest">check-manifest</a> to validate MANIFEST.in
+</div>
+<div>setup.cfg will solve all your problems (I think)
+</div>
 <div><pre><code>setup(...,
       license='Apache 2')
 </code></pre>
@@ -216,7 +219,7 @@ for line in open("./yourmodule/__init__.py"):
 </div>
 <div>Write documentation (it's ok to be lazy)
 </div>
-<div>Add a README.rst file (yes, reStructuredText)
+<div>Add a README.rst file
 </div>
 <div>Say anything in the README, just say something
 </div>
@@ -232,7 +235,10 @@ for line in open("./yourmodule/__init__.py"):
 <div>When you are AWESOME:
 
 <ul>
-<li>switch to <a href="http://sphinx-doc.org/">Sphinx</a></li>
+<li>switch to <a href="http://sphinx-doc.org/">Sphinx</a>
+<ul>
+<li>README.rst converts nicely</li>
+</ul></li>
 <li>deploy to <a href="https://readthedocs.org/">readthedocs.org</a> from git</li>
 </ul>
 </div>
@@ -284,6 +290,7 @@ for line in open("./yourmodule/__init__.py"):
 <li>changelog
 <ul>
 <li>backwards incompatible</li>
+<li>migration guide</li>
 </ul></li>
 <li>roadmap?</li>
 </ul>
@@ -362,8 +369,21 @@ script: tox
 <ul>
 <li>chores, release management</li>
 <li>quit at will</li>
-<li>appreciate and empower others</li>
 <li>maintain modules you care about</li>
+</ul>
+</div>
+<div>Sage advice from Ian Bicking...
+</div>
+<div>"I have no idea how I've done it because I also have <em>not</em> done it a bunch of times"
+</div>
+<div>Ian says...
+
+<ul>
+<li>low quality project, more engagement
+<ul>
+<li>pip needed a lot of work</li>
+</ul></li>
+<li>appreciate and empower others</li>
 </ul>
 </div>
 <div><img src="images/earth.jpg" alt="earth" /> That's it

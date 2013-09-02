@@ -8,7 +8,8 @@
 
 # Topics:
 
-* scaffolding
+* scaffolding that works today
+* essential tools
 * docs
 * stability
 * community
@@ -65,7 +66,7 @@
     for line in open("./yourmodule/__init__.py"):
         m = re.search("__version__\s*=\s*(.*)", line)
         if m:
-            version = m.group(1).strip()[1:-1] # quotes
+            version = m.group(1).strip()[1:-1]
             break
     assert version
 
@@ -78,6 +79,8 @@
           ])
 
 # Support Python 2 and 3 with [six](https://pypi.python.org/pypi/six/)
+# Use [check-manifest](https://pypi.python.org/pypi/check-manifest) to validate MANIFEST.in
+# setup.cfg will solve all your problems (I think)
 #
 
     setup(...,
@@ -85,7 +88,7 @@
 
 # ![Good Guy](images/good-guy.png)[WTFPL](http://en.wikipedia.org/wiki/WTFPL) - Do What the Fuck You Want to Public License
 # Write documentation (it's ok to be lazy)
-# Add a README.rst file (yes, reStructuredText)
+# Add a README.rst file
 # Say anything in the README, just say something
 # Crucial docs:
 
@@ -97,6 +100,7 @@
 # When you are AWESOME:
 
 * switch to [Sphinx](http://sphinx-doc.org/)
+  * README.rst converts nicely
 * deploy to [readthedocs.org](https://readthedocs.org/) from git
 
 # Usage docs:
@@ -142,6 +146,7 @@
 * where to get help
 * changelog
   * backwards incompatible
+  * migration guide
 * roadmap?
 
 # Use [tox](http://tox.readthedocs.org/en/latest/) to test your module
@@ -211,8 +216,16 @@
 
 * chores, release management
 * quit at will
-* appreciate and empower others
 * maintain modules you care about
+
+# Sage advice from Ian Bicking...
+# "I have no idea how I've done it because I also have *not* done it a bunch of times"
+# Ian says...
+
+* low quality project, more engagement
+  * pip needed a lot of work
+  * release early
+* appreciate and empower others
 
 # ![earth](images/earth.jpg) That's it
 
