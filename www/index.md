@@ -27,6 +27,7 @@
 * [django-waffle](https://github.com/jsocol/django-waffle/)
 
 # Useless modules are OK
+# Open by default
 # ![Creepy mustache](images/mustache_cropped.jpg) I want to use your module
 
 # When should you create a module?
