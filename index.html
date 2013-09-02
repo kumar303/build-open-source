@@ -167,10 +167,18 @@ img.centered {
 <div><pre><code>TODO: liberate
 </code></pre>
 </div>
-<div><pre><code>from setuptools import setup
+<div><pre><code>from distutils.core import setup
 
 setup(name='yourmodule',
       version='1.0.0',
+      ...)
+</code></pre>
+</div>
+<div><pre><code>from setuptools import (setup,
+                        find_packages)
+
+setup(name='yourmodule',
+      packages=find_packages(exclude=['tests']),
       ...)
 </code></pre>
 </div>
@@ -181,8 +189,14 @@ setup(name='yourmodule',
                 upload
 </code></pre>
 </div>
-<div><pre><code>pip install yourmodule
+<div><img src="images/double-rainbow.jpg" alt="double rainbow" />
+
+<pre><code>pip install yourmodule
 </code></pre>
+</div>
+<div><img src="images/double-rainbow.jpg" alt="double rainbow" />
+
+34,347 packages
 </div>
 <div><pre><code>yourmodule/__init__.py:
 
@@ -228,7 +242,7 @@ assert version
 <div>Crucial docs:
 
 <ol>
-<li>what your module is for</li>
+<li>what your module does</li>
 <li>how to install it</li>
 <li>how to use it</li>
 <li>how to hack on it</li>
@@ -263,6 +277,8 @@ assert version
     &gt;&gt;&gt; do_login = Fake()
 </code></pre>
 </div>
+<div>Do not hide import paths. Thx.
+</div>
 <div><pre><code>def login(user, passwd):
     """
     Logs in the user
@@ -276,6 +292,8 @@ assert version
 </code></pre>
 </div>
 <div>Tell a story about your module. Fallback to the API reference.
+</div>
+<div>Newbies vs. power users
 </div>
 <div>How to test...
 
@@ -374,9 +392,9 @@ script: tox
 <li>maintain modules you care about</li>
 </ul>
 </div>
-<div>Sage advice from Ian Bicking...
+<div>How did Ian Bicking do it?
 </div>
-<div>"I have no idea how I've done it because I also have <em>not</em> done it a bunch of times"
+<div>"I have no idea ..."
 </div>
 <div>Ian says...
 
@@ -386,6 +404,7 @@ script: tox
 <li>pip needed a lot of work</li>
 <li>release early</li>
 </ul></li>
+<li>if the module is useful ... ?</li>
 <li>appreciate and empower others</li>
 </ul>
 </div>

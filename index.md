@@ -34,13 +34,21 @@
 #
 
     TODO: liberate
-
 #
 
-    from setuptools import setup
+    from distutils.core import setup
 
     setup(name='yourmodule',
           version='1.0.0',
+          ...)
+
+#
+
+    from setuptools import (setup,
+                            find_packages)
+
+    setup(name='yourmodule',
+          packages=find_packages(exclude=['tests']),
           ...)
 
 # Publish to [PyPI](https://pypi.python.org/pypi)
@@ -49,9 +57,13 @@
                     register \
                     upload
 
-#
+# ![double rainbow](images/double-rainbow.jpg)
 
     pip install yourmodule
+
+# ![double rainbow](images/double-rainbow.jpg)
+
+34,347 packages
 
 #
 
@@ -93,7 +105,7 @@
 # Say anything in the README, just say something
 # Crucial docs:
 
-1. what your module is for
+1. what your module does
 2. how to install it
 3. how to use it
 4. how to hack on it
@@ -122,6 +134,7 @@
         >>> from fudge import Fake
         >>> do_login = Fake()
 
+# Do not hide import paths. Thx.
 #
 
     def login(user, passwd):
@@ -136,6 +149,7 @@
     .. autofunction:: yourmodule.login
 
 # Tell a story about your module. Fallback to the API reference.
+# Newbies vs. power users
 # How to test...
 
 * test environment
@@ -219,13 +233,14 @@
 * quit at will
 * maintain modules you care about
 
-# Sage advice from Ian Bicking...
-# "I have no idea how I've done it because I also have *not* done it a bunch of times"
+# How did Ian Bicking do it?
+# "I have no idea ..."
 # Ian says...
 
 * low quality project, more engagement
   * pip needed a lot of work
   * release early
+* if the module is useful ... ?
 * appreciate and empower others
 
 # ![earth](images/earth.jpg) That's it
