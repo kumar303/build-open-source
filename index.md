@@ -31,6 +31,7 @@
 # ![Creepy mustache](images/mustache_cropped.jpg) I want to use your module
 
 # When should you create a module?
+# NIH is a disease. Get help
 #
 
     TODO: liberate
