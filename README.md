@@ -2,6 +2,8 @@ This is the source for my slides to [How To Create Amazing Open Source Modules](
 
 You can view them on [Github Pages](http://kumar303.github.io/build-open-source/).
 
+Here's a [video of the talk](https://www.youtube.com/watch?v=OuWd80DxSC4).
+
 # Hacking
 
 To build the slides, create a virtualenv and install some dependencies:
