@@ -6,6 +6,8 @@ Here's a [video of the talk](https://www.youtube.com/watch?v=OuWd80DxSC4).
 
 # Hacking
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/kumar303/build-open-source.svg)](https://greenkeeper.io/)
+
 To build the slides, create a virtualenv and install some dependencies:
 
     pip install -r requirements.txt
